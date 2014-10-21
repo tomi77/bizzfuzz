@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% load eligible %}
+{% load bizzfuzz %}
+
+{% block extra-head %}
+    <script>
+    function preDelete(el) {
+        $('#deleteLink').attr('href', $(el).data('href'));
+        return true;
+    }
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    Delete user?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    <a href="#" class="btn btn-primary" id="deleteLink">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if message %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        </div>
+    {% endif %}
+    {% if info %}
+        <div class="alert alert-info" role="alert">
+            {{ info }}
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        </div>
+    {% endif %}
+    {% if warning %}
+        <div class="alert alert-warning" role="alert">
+            {{ warning }}
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        </div>
+    {% endif %}
+    {% if alert %}
+        <div class="alert alert-danger" role="alert">
+            {{ alert }}
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        </div>
+    {% endif %}
+
+    <ul class="nav nav-pills pull-right">
+        <li><a href="{% url 'add' %}"><i class="glyphicon glyphicon-plus"></i> Add</a></li>
+    </ul>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Username</th>
+            <th>Birthday</th>
+            <th>Eligible</th>
+            <th>Random Number</th>
+            <th>BizzFuzz</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.birthday|date:"Y-m-d" }}</td>
+                <td>{% eligible user.birthday %}</td>
+                <td>{{ user.random_number }}</td>
+                <td>{% bizzfuzz user.random_number %}</td>
+                <td class="pull-right">
+                    <a href="{% url 'view' user.id %}" class="btn btn-default">View</a>
+                    <a href="{% url 'edit' user.id %}" class="btn btn-default"><i
+                            class="glyphicon glyphicon-edit"></i> Edit</a>
+                    <button data-href="{% url 'del' user.id %}" class="btn btn-default" data-toggle="modal"
+                            data-target="#deleteUserModal" onclick="return preDelete(this)">
+                        <i class="glyphicon glyphicon-trash"></i> Delete
+                    </button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
