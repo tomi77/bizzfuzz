@@ -11,12 +11,14 @@ class UserProfileManager(BaseUserManager):
         user = self.model(username=username, birthday=birthday, is_superuser=False)
         user.set_password(password)
         user.save()
+
         return user
 
     def create_superuser(self, username, password, birthday, **extra_fields):
         user = self.model(username=username, birthday=birthday, is_superuser=True)
         user.set_password(password)
         user.save()
+
         return user
 
 

@@ -28,6 +28,7 @@ def add(request):
         user = UserProfile(username=request.POST.get('username'),
                            birthday=request.POST.get('birthday'))
         user.save()
+
         return redirect('/')
 
     return render(request, 'accounts/add.html')
@@ -40,6 +41,7 @@ def edit(request, pk):
         user.username = request.POST.get('username', user.username)
         user.birthday = request.POST.get('birthday', user.birthday)
         user.save()
+
         return redirect('/')
 
     return render(request, 'accounts/edit.html', {
