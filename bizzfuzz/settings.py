@@ -5,7 +5,6 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 
 ADMINS = (
@@ -107,8 +106,7 @@ ROOT_URLCONF = 'bizzfuzz.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'bizzfuzz.wsgi.application'
 
-import os
-TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/'),)
+TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\', '/'),)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
