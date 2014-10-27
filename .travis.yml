@@ -5,6 +5,6 @@ install:
   - pip install -r requiments.txt
   - pip install coveralls
 script:
-  - coverage run --source=bizzbuzz manage.py test
+  - coverage run --source=bizzbuzz setup.py test
 after_success:
   - coveralls
