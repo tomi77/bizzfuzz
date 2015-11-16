@@ -1,5 +1,3 @@
-from datetime import date
-from dateutil.relativedelta import relativedelta
 from django import template
 
 register = template.Library()
