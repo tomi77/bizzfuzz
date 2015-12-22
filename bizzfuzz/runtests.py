@@ -1,10 +1,7 @@
 import sys
-
 import os
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-test_dir = os.path.dirname(__file__)
-sys.path.insert(0, test_dir)
+os.environ['DJANGO_SETTINGS_MODULE'] = 'bizzfuzz.settings'
 
 import django
 from django.test.utils import get_runner
