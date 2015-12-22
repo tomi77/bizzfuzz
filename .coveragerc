@@ -2,7 +2,7 @@
 [run]
 branch = True
 source = accounts
-omit = urls.py,tests.py
+omit = accounts/urls.py,accounts/tests.py
 
 [report]
 # Regexes for lines to exclude from consideration
