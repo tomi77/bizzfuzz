@@ -8,7 +8,7 @@ class AccountsViewsTestCase(TestCase):
         resp = self.client.get('/')
         self.assertEqual(resp.status_code, 200)
         self.assertTrue('users' in resp.context)
-        self.assertEqual([user.pk for user in resp.context['users']], [1, 2, 3])
+        self.assertEqual([user.pk for user in resp.context['users']], [1, 2, 3, 4])
 
     def test_details(self):
         resp = self.client.get('/view/1/')

@@ -19,3 +19,10 @@
     username: "mary"
     random_number: 15
     birthday: "1996-01-01"
+-
+  pk: 4
+  model: "accounts.userprofile"
+  fields:
+    username: "jason"
+    random_number: 7
+    birthday: "1982-10-02"
