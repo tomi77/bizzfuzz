@@ -1,0 +1,21 @@
+-
+  pk: 1
+  model: "accounts.userprofile"
+  fields:
+    username: "john"
+    random_number: 66
+    birthday: "1980-05-13"
+-
+  pk: 2
+  model: "accounts.userprofile"
+  fields:
+    username: "tom"
+    random_number: 20
+    birthday: "2014-04-21"
+-
+  pk: 3
+  model: "accounts.userprofile"
+  fields:
+    username: "mary"
+    random_number: 15
+    birthday: "1996-01-01"
