@@ -21,7 +21,7 @@ class EligibleNode(template.Node):
 def eligible(parser, token):
     try:
         tag_name, birthday = token.split_contents()
-    except ValueError:
+    except ValueError: # pragma: no cover
         raise template.TemplateSyntaxError("%r tag requires a single argument" % token.contents.split()[0])
 
     return EligibleNode(birthday)

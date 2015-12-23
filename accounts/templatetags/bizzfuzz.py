@@ -25,7 +25,7 @@ class BizzFuzzNode(template.Node):
 def bizzfuzz(parser, token):
     try:
         tag_name, random_number = token.split_contents()
-    except ValueError:
+    except ValueError: # pragma: no cover
         raise template.TemplateSyntaxError("%r tag requires a single argument" % token.contents.split()[0])
 
     return BizzFuzzNode(random_number)
