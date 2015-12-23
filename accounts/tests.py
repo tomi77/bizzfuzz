@@ -21,3 +21,13 @@ class AccountsViewsTestCase(TestCase):
         self.assertEqual(resp.status_code, 200)
         self.assertTrue('user' in resp.context)
         self.assertEqual(resp.context['user'].pk, 1)
+
+    def test_add(self):
+        resp = self.client.get('/add/')
+        self.assertEqual(resp.status_code, 200)
+
+    def test_delete_non_existent_user(self):
+        resp = self.client.get('/del/99/', follow=True)
+        self.assertEqual(resp.status_code, 200)
+        self.assertTrue('alert' in resp.context)
+        self.assertIsNotNone(resp.context['alert'])
