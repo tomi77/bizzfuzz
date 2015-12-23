@@ -22,8 +22,6 @@ SECRET_KEY = 'zo+f8w%-f11_xd)k1+oi4&^!j+hc-s)fqz++cs4pz+-f)ovy+l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-TEMPLATE_DEBUG = False
-
 ALLOWED_HOSTS = ['*']
 
 
@@ -37,12 +35,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-)
-
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -59,7 +51,17 @@ ROOT_URLCONF = 'bizzfuzz.urls'
 
 WSGI_APPLICATION = 'bizzfuzz.wsgi.application'
 
-TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\', '/'),)
+# Templates
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\', '/'),
+        ],
+        'APP_DIRS': False,
+    }
+]
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases

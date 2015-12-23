@@ -1,12 +1,15 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
+
+from . import views
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
-                       url(r'^$', 'accounts.views.index', name='index'),
-                       url(r'^edit/(\d+)/$', 'accounts.views.edit', name='edit'),
-                       url(r'^view/(\d+)/$', 'accounts.views.view', name='view'),
-                       url(r'^del/(\d+)/$', 'accounts.views.delete', name='del'),
-                       url(r'^add/$', 'accounts.views.add', name='add'))
+urlpatterns = [
+    url(r'^$', views.index, name='index'),
+    url(r'^edit/(\d+)/$', views.edit, name='edit'),
+    url(r'^view/(\d+)/$', views.view, name='view'),
+    url(r'^del/(\d+)/$', views.delete, name='del'),
+    url(r'^add/$', views.add, name='add'),
+]
