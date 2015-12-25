@@ -14,7 +14,7 @@ class AccountsViewsTestCase(TestCase):
         self.assertEqual([user.pk for user in resp.context['users']], [1, 2, 3, 4])
 
     def test_details(self):
-        url = reverse('view', args=[1])
+        url = reverse('details', args=[1])
         resp = self.client.get(url)
 
         self.assertEqual(resp.status_code, 200)

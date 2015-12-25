@@ -9,7 +9,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^edit/(\d+)/$', views.edit, name='edit'),
-    url(r'^view/(\d+)/$', views.view, name='view'),
+    url(r'^view/(\d+)/$', views.details, name='details'),
     url(r'^del/(\d+)/$', views.delete, name='del'),
     url(r'^add/$', views.add, name='add'),
 ]

@@ -50,10 +50,10 @@ def edit(request, pk):
     })
 
 
-def view(request, pk):
+def details(request, pk):
     user = UserProfile.objects.get(pk=pk)
 
-    return render(request, 'accounts/view.html', {
+    return render(request, 'accounts/details.html', {
         'user': user
     })
 

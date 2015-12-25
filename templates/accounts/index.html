@@ -83,7 +83,7 @@
                 <td>{{ user.random_number }}</td>
                 <td>{% bizzfuzz user.random_number %}</td>
                 <td style="text-align: right">
-                    <a href="{% url 'view' user.id %}" class="btn btn-default">View</a>
+                    <a href="{% url 'details' user.id %}" class="btn btn-default">View</a>
                     <a href="{% url 'edit' user.id %}" class="btn btn-default"><i
                             class="glyphicon glyphicon-edit"></i> Edit</a>
                     <button data-href="{% url 'del' user.id %}" class="btn btn-default" data-toggle="modal"
